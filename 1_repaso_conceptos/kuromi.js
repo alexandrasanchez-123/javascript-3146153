@@ -1,4 +1,4 @@
-var imagen = document.getElementById("imagen");
+/* var imagen = document.getElementById("imagen");
 
 var btn1 = document.getElementById("btn1");
 var btn2 = document.getElementById("btn2");
@@ -37,7 +37,35 @@ btn2.addEventListener("click", function() {
 
 btn3.addEventListener("click", function() {
     resetearImagen();
-    imagen.style.transform = "scale(1.3) rotate(8deg)";
+    imagen.style.transform = "scale(1) rotate(8deg)";
     desactivarTodos();
     btn3.classList.add("activo");
-});
+}); */
+
+/* 1.captura de variable */
+const pantalla = document.querySelector("#imagen");
+const btn1 = document.querySelector("#btn1");
+const btn2 = document.querySelector("#btn2");
+const btn3 = document.querySelector("#btn3");
+
+/* 2. Funciones */
+function blancoynegro() {
+    console.log("Imagen modificada");
+    pantalla.style.filter = "grayscale(100%)";
+   /*  btn1.style.color = "white";
+    btn1.style.backgroundColor = "blue";
+    btn1.style.height = "200px";
+    btn1.style.borderRadius = "50%"; */ 
+}
+function desenfoque() {
+    console.log("Imagen modificada");
+    pantalla.style.filter = "blur(4px)";
+}
+function zoom() {
+    console.log("Imagen modificada");
+    pantalla.style.transform = "scale(1) rotate(8deg)";
+}
+/* 3. Eventos */
+btn1.addEventListener("click", blancoynegro)
+btn2.addEventListener("click", desenfoque);
+btn3.addEventListener("click", zoom);
