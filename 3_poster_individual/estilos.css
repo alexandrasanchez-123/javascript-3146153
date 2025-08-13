@@ -1,0 +1,236 @@
+*{
+    margin-top: 2%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.hud {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      color: white;
+      z-index: 1000;
+    }
+
+    .hud-item {
+      display: flex;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+
+    .hud-item img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+.pantalla{
+    position: relative;
+    width: 750px;
+    height:500px;
+    margin: auto;
+}
+
+.pantalla .fondo{
+    width: 100%;
+}
+
+.bloque1{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    animation: movimiento 10s infinite alternate ease-in-out;
+}
+@keyframes movimiento{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(15px);
+    }
+}
+.bloque2{
+    position: absolute;
+    top: 18%;
+    left: 72%;
+    animation: movimiento 6s infinite alternate ease-in-out;
+}
+@keyframes movimiento{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(30px);
+    }
+}
+.bloque3{
+    position: absolute;
+    top: 36%;
+    left: 0.1%;
+}
+.bloque4{
+    position: absolute;
+    top: 73%;
+    left: -4%;
+}
+.bloque5{
+    position: absolute;
+    top: 73%;
+    left: 84.5%;
+}
+.escalera{
+    position: absolute;
+    top: 38%;
+    left: 4%;
+}
+.soporte{
+    position: absolute;
+    top: 62%;
+    left: 17%;
+}
+
+.puente{
+    position: absolute;
+    top: 75%;
+    left: 33%;
+}
+
+.cofre {
+    position: absolute;
+    right: 100px; 
+    bottom: 108px;
+    left: 88%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@keyframes salto {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+.cofre.saltar {
+    animation: salto 0.5s ease;
+}
+ .moneda1{
+    position: absolute;
+    top: 26%;
+    left: 6%;
+    cursor: pointer;
+}
+.moneda2{
+        position: absolute;
+    top: 12%;
+    left: 34%;
+    cursor: pointer;
+}
+
+.moneda3{
+       position: absolute;
+    top: 12%;
+    left: 44%;
+    cursor: pointer;
+}
+.moneda4{
+    position: absolute;
+    top: 12%;
+    left: 53%;
+    cursor: pointer;
+}
+.moneda5{
+    position: absolute;
+    top: 12%;
+    left: 78%;
+    cursor: pointer;
+}
+.moneda6{
+    position: absolute;
+    top: 12%;
+    left: 87%;
+    cursor: pointer;
+}
+.moneda7{
+    position: absolute;
+    top: 63%;
+    left: 58%;
+    cursor: pointer;
+} 
+.moneda8{
+    position: absolute;
+    top: 63%;
+    left: 67%;
+    cursor: pointer;
+}
+.moneda9{
+    position: absolute;
+    top: 63%;
+    left: 76%;
+    cursor: pointer;
+}
+.moneda10{
+    position: absolute;
+    top: 63%;
+    left: 84%;
+    cursor: pointer;
+}
+
+.estrella{
+    position: absolute;
+    top: 10%;
+    left: 64%;
+    cursor: pointer;
+}
+.sonic{
+        position: absolute;
+    top: 54%;
+    left: 17%;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    animation: caminar-saltar 3s ease-in-out forwards;
+}
+@keyframes caminar-saltar {
+    0% {
+        left: 10%; 
+        top: 54%;
+    }
+    40% {
+        left: 33%; 
+        top: 54%;
+    }
+    70% {
+        left: 60%; 
+        top: 54%;
+    }
+    85% {
+        left: 75%;
+        top: 50%;
+    }
+    100% {
+        left: 88%; 
+        top: 60%;
+    }
+}
+ .saltar{
+    animation: salto 0.6s ease forwards;
+}
+
+/* animación */
+@keyframes salto{
+    0%{
+        transform: translateY(0); opacity: 1;
+    }
+    30%{
+        transform: translateY(-60px);
+    }
+    100%{
+        transform: translateY(0px); opacity: 0;
+    }
+}
