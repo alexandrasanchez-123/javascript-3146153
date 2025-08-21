@@ -3,6 +3,9 @@
     padding: 0%;
     box-sizing: border-box;
 }
+.d_none {
+    display: none;
+}
 
 .hud {
     position: absolute;
@@ -220,10 +223,10 @@
     transition: background-color 0.3s;
 }
 
-.play-stop-img2:hover {
+#play-stop-img2:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-button {
+#play-stop-img2{
     background-color: salmon;
     border: none;
     position: absolute;
@@ -236,4 +239,29 @@ button {
     border-radius: 3rem;
     cursor: pointer;
     font-size: 16px;
+}
+.navegacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 220px o ;
+    gap: 20px;
+}
+
+
+.escena_2{
+    filter: invert();
+}
+.escena_3{
+    filter: sepia(2);
+}
+.d-none {
+    display: none !important;
+}   
+
+.filter-style-2 {
+    filter: invert(1);
+}
+.filter-style-3 {
+    filter: sepia(2);
 }
