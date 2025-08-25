@@ -1,218 +1,67 @@
 
-/* document.addEventListener("DOMContentLoaded", () => {
-    const sonic = document.querySelector(".sonic");
-    const monedas = document.querySelectorAll(".coin");
-    const estrella = document.querySelector(".estrella");
+const monedas = document.querySelectorAll(".coin");
+const corazones = document.querySelectorAll(".corazon");
+const contadorMonedas = document.querySelector("#contador-monedas");
+const contadorCorazones = document.querySelector("#contador-corazones");
+let totalMonedas = 0;
+let totalCorazones = 0;
 
-    const contadorMonedas = document.getElementById("contador-monedas");
-    const contadorEstrellas = document.getElementById("contador-estrellas");
+/* console.log(monedas, corazon, contadorMonedas, contadorCorazones); */
 
-    let totalMonedas = 0;
-    let totalEstrellas = 0;
+monedas.forEach(function (moneda) {
 
-    function detectarColision(rect1, rect2) {
-        return !(
-            rect1.top > rect2.bottom ||
-            rect1.bottom < rect2.top ||
-            rect1.left > rect2.right ||
-            rect1.right < rect2.left
-        );
-    }
+    moneda.addEventListener("click", function () {
+        moneda.classList.add("saltar");
+        totalMonedas++
+        contadorMonedas.textContent = totalMonedas
 
-    function actualizar() {
-        const rectSonic = sonic.getBoundingClientRect();
+    })
 
-       
-        monedas.forEach((moneda) => {
-            if (!moneda.classList.contains("recogida")) {
-                const rectMoneda = moneda.getBoundingClientRect();
-                if (detectarColision(rectSonic, rectMoneda)) {
-                    moneda.style.display = "none";
-                    moneda.classList.add("recogida");
-                    totalMonedas++;
-                    contadorMonedas.textContent = totalMonedas;
-                }
-            }
-        });
-
-        // Detectar estrella
-        if (!estrella.classList.contains("recogida")) {
-            const rectEstrella = estrella.getBoundingClientRect();
-            if (detectarColision(rectSonic, rectEstrella)) {
-                estrella.style.display = "none";
-                estrella.classList.add("recogida");
-                totalEstrellas++;
-                contadorEstrellas.textContent = totalEstrellas;
-            }
-        }
-
-        requestAnimationFrame(actualizar);
-    }
-
-    actualizar();
-});
-
-const estrella = document.querySelectorAll(".poin");
-const contadorEstrellas = document.querySelector("#contador-estrellas");
-let totalEstrellas = 0;
-
-estrella.forEach(function(estrella) {
-    estrella.addEventListener("click", function() {
-        estrella.classList.add("saltar");
-        totalEstrellas++;
-        contadorEstrellas.textContent = totalEstrellas;
-    });
-}); */
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    var sonic = document.querySelector(".sonic");
-    var monedas = document.querySelectorAll(".coin");
-    var estrella = document.querySelector(".estrella");
-    var cofre = document.querySelector(".cofre");
-
-    var contadorMonedas = document.getElementById("contador-monedas");
-    var contadorEstrellas = document.getElementById("contador-estrellas");
-
-    var totalMonedas = 0;
-    var totalEstrellas = 0;
-
-    var sonidoMoneda = document.getElementById("audio-2");
-    var sonidoSalto = document.getElementById("audio-1");
-
-    // Usar audio en el DOM para música de fondo
-    var musicaFondo = document.getElementById("musica-fondo");
-
-    // Botón play/stop
-    var botonMusica = document.getElementById("play-stop-img2");
-
-    // Inicializa estado del botón
-    botonMusica.textContent = "Play";
-
-    botonMusica.addEventListener("click", function () {
-        if (musicaFondo.paused) {
-            musicaFondo.play();
-            botonMusica.textContent = "Stop";
-        } else {
-            musicaFondo.pause();
-            botonMusica.textContent = "Play";
-        }
-    });
-
-    // Opcional: para que la música arranque al primer click en cualquier lugar (por políticas de autoplay)
-    let musicaIniciada = false;
-    document.body.addEventListener("click", function () {
-        if (!musicaIniciada) {
-            musicaFondo.play();
-            botonMusica.textContent = "Stop";
-            musicaIniciada = true;
-        }
-    });
-
-    // Resto del código igual...
-    function detectarColision(hola1, hola2) {
-        return !(
-            hola1.top > hola2.bottom ||
-            hola1.bottom < hola2.top ||
-            hola1.left > hola2.right ||
-            hola1.right < hola2.left
-        );
-    }
-
-    monedas.forEach(function (moneda) {
-        moneda.addEventListener("click", function () {
-            if (!moneda.classList.contains("recogida")) {
-                moneda.style.display = "none";
-                moneda.classList.add("recogida");
-                totalMonedas++;
-                contadorMonedas.textContent = totalMonedas;
-
-                sonidoMoneda.currentTime = 0;
-                sonidoMoneda.play();
-            }
-        });
-    });
-
-    estrella.addEventListener("click", function () {
-        if (!estrella.classList.contains("recogida")) {
-            estrella.style.display = "none";
-            estrella.classList.add("recogida");
-            totalEstrellas++;
-            contadorEstrellas.textContent = totalEstrellas;
-        }
-    });
-
-    
-    cofre.addEventListener("click", function () {
-    cofre.classList.add("saltar");
-
-    sonidoSalto.currentTime = 0;
-    sonidoSalto.play();
-
-    setTimeout(function () {
-        cofre.classList.remove("saltar");
-    }, 500);
-});
-
-    sonic.addEventListener("click", function () {
-        sonic.classList.add("saltar");
-        sonidoSalto.currentTime = 0;
-        sonidoSalto.play();
-
-        setTimeout(function () {
-            sonic.classList.remove("saltar");
-        }, 600);
-    });
-
-    function actualizar() {
-        var rectSonic = sonic.getBoundingClientRect();
-
-        monedas.forEach(function (moneda) {
-            if (!moneda.classList.contains("recogida")) {
-                var rectMoneda = moneda.getBoundingClientRect();
-                if (detectarColision(rectSonic, rectMoneda)) {
-                    moneda.style.display = "none";
-                    moneda.classList.add("recogida");
-                    totalMonedas++;
-                    contadorMonedas.textContent = totalMonedas;
-
-                    sonidoMoneda.currentTime = 0;
-                    sonidoMoneda.play();
-                }
-            }
-        });
-
-        if (!estrella.classList.contains("recogida")) {
-            var rectEstrella = estrella.getBoundingClientRect();
-            if (detectarColision(rectSonic, rectEstrella)) {
-                estrella.style.display = "none";
-                estrella.classList.add("recogida");
-                totalEstrellas++;
-                contadorEstrellas.textContent = totalEstrellas;
-            }
-        }
-
-        requestAnimationFrame(actualizar);
-    }
-
-    actualizar();
-});
-//siguiente función boton//
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-const escena1 = document.querySelector(".escena-1");
-const escena2 = document.querySelector(".escena-2");
-const escena3 = document.querySelector(".escena-3");
-let i = 1
-
-next.addEventListener("click", function () {
-    if (i === 1){
-        escena1.classList.add('d-none');
-        escena2.classList.remove('d-none');
-        i++
-    } else if (i == 2) {
-        escena2.classList.add('d-none');
-        escena3.classList.remove('d-none');
-        i++
-    }
 })
+
+corazones.forEach(function (corazon) {
+
+    corazon.addEventListener("click", function () {
+        corazon.classList.add("saltar");
+        totalCorazones++;
+        contadorCorazones.textContent = totalCorazones;
+    })
+})
+
+
+const escenas = document.querySelectorAll(".escena");
+const btnAnterior = document.querySelector(".anterior");
+const btnSiguiente = document.querySelector(".siguiente");
+const miniaturas = document.querySelectorAll(".miniatura img");
+let indice = 0;
+
+/* console.log(escenas);
+console.log(escenas[1]); */
+function mostrarEscena(i) {
+ /*    console.log (escenas [i]) */
+    for (let j = 0; j< escenas.length; j++) {
+        escenas[j].classList.remove("activa");
+    }
+    escenas[i].classList.add("activa");
+    indice = i;
+}
+
+
+/* boton siguiente */
+btnSiguiente.addEventListener("click", function() {
+    indice = indice + 1
+    if (indice >= escenas.length) {
+        indice = 0;
+    }
+    mostrarEscena(indice);
+})
+
+/* boton anterior */
+btnAnterior.addEventListener("click", function() {
+    indice = indice - 1
+    if (indice < 0) {
+        indice= escenas.length -1
+    }
+    mostrarEscena(indice);
+})
+
